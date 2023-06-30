@@ -1,0 +1,823 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>panchayat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/2e876648dd.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<style>
+    .container-fluid {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+
+    }
+/* header */
+    .navbar {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    .navbar .container-fluid {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    /* .logo{
+        border-radius:  60% 40% 33% 67% / 31% 28% 72% 55%;
+        background-color: aqua;
+        padding: 5px;
+    } */
+    .navbar-brand {
+        width: 30%;
+        font-family: monospace;
+        /* text-align: center; */
+
+        font-size: 30px;
+        font-weight: 600;
+        margin: 0;
+        text-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    .navbar-brand span {
+        color: rgb(235, 10, 66);
+    }
+
+    .fa-bars {
+        padding-left: 20px;
+    }
+
+    .nav a {
+        color: rgb(235, 10, 66);
+        text-decoration: none;
+    }
+
+    .nav .login {
+        background-color: rgb(235, 10, 66);
+        color: white;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+
+    .nav a:hover {
+        color: black;
+        border-bottom: 2px solid rgb(235, 10, 66);
+    }
+
+    .carousel h5 {
+        font-size: 30px;
+        font-weight: 600;
+        text-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+/* services */
+    .row {
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
+
+    .row h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        text-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    .row p,
+    span,
+    li,
+    h6 {
+        text-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    .card {
+        margin: 10px;
+        height: 21rem;
+        padding: 0;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+    .card:hover{
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    }
+
+    .card img {
+        height: 10rem;
+    }
+
+    .card-body {
+        background-color: rgb(211, 12, 12);
+        color: white;
+    }
+
+    .card-body span {
+        font-size: 20px;
+        font-weight: 600;
+    }
+/* aboutus */
+    .row .col-md-6 {
+        height: 600px;
+        padding: 10px;
+        /* background-color: antiquewhite; */
+        overflow: scroll;
+        padding: 20px;
+
+    }
+
+    .row .image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .row .col-md-6::-webkit-scrollbar {
+        display: none;
+    }
+
+    .row h3 {
+        color: rgb(235, 10, 66);
+        font-size: 30px;
+        font-weight: 600;
+        text-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    .col-md-6 i {
+        font-size: 35px;
+
+    }
+
+    .col-md-6 div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #aboutUs,
+    #services {
+        height: 657px;
+    }
+
+    #aboutUs span,
+    h6 {
+        font-size: 17px;
+        font-weight: bold;
+    }
+/* contact us */
+    .cantact {
+        max-width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        height: 657px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background: rgb(131,58,180);
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 65%, rgba(252,176,69,1) 100%);
+        color: white;
+        border: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #successMessage {
+        text-align: center;
+        margin-top: 20px;
+        background-color: #f2f2f2;
+        padding: 10px;
+    }
+/* footer */
+    footer {
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(233,9,40,1) 35%, rgba(0,212,255,1) 100%);
+        padding-top: 20px;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .footer-left h3 {
+        color: #333;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .footer-left p {
+        color: #777;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .footer-right ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-right ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    .footer-right ul li a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .footer-right ul li a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-bottom {
+        /* background-color: #ebebeb; */
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        color: black;
+        font-size: 14px;
+        margin: 0;
+    }
+/* login form */
+
+    h2 {
+    text-align: center;
+    }
+
+    .form-group {
+    margin-bottom: 15px;
+    }
+
+    label {
+    font-weight: bold;
+    }
+
+    input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+
+    input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    }
+
+    input[type="submit"]:hover {
+    background-color: #45a049;
+    }
+
+    marquee{
+        padding: 10px;
+    }
+    .modal-header{
+        border: none;
+    }
+</style>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg  ">
+            <div class="container-fluid">
+                <i class="fa-solid fa-bars offcanvas-trigger" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasMenu" ></i>
+                <p class="navbar-brand"> आपली <span>वैभववाडी </span> </p>
+
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal1" aria-current="page" href="#">Yojana</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">aplications</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#WaterConnection">New Water connection</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-expanded="false">Complaintes</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Register Complaintes</a></li>
+                            
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutUs">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login " href="#" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">login</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <marquee width="100%" direction="left" >
+        This is a sample scrolling text that has scrolls in the upper direction.
+        </marquee>
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="margin-top: 30px;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://opinionexpress.in/assets/images/article/1598338628.jpg" class="d-block w-100"
+                        style="width:100% ; height: 500px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>वैभववाडी रोड </h5>
+                        <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.tripnight.com/public/thumbs/monuments/7776/NwI0zsgJ6rDi_468_738.jpg"
+                        class="d-block w-100" style="width:100% ; height: 500px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>नापणे धबधबा </h5>
+                        <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="	https://live.staticflickr.com/296/31903853681_ad0efef274_h.jpg" class="d-block w-100"
+                        style="width:100% ; height: 500px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>करूळ घाट </h5>
+                        <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="services">
+            <h2>SERVICES</h2>
+            <div class="card" style="width: 15rem; ">
+                <img src="{% static 'amblance.png' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">रुग्णवाहिका </h5>
+                    <p class="card-text">आपत्कालीन वेळी रुग्णवाहिका मिळवण्यासाठी पुढील टोल फ्री नंबरवर कॉल करा.
+                        <br><span>(2000 444 8888)
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="width: 15rem;">
+                <img src="static/fire van.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">अग्निशामक गाडी </h5>
+                    <p class="card-text">आपत्कालीन वेळी अग्निशामक बंब मिळवण्यासाठी पुढील टोल फ्री नंबरवर कॉल करा. <br>
+                        <span>(2222 444 8888)</span>
+                    </p>
+                </div>
+            </div>
+            <div class="card" style="width: 15rem;">
+                <img src="static/ghanta gadi.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">घंटा गाडी </h5>
+                    <p class="card-text">घंटा गाडी साठी पुढील टोल फ्री नंबरवर कॉल करा. <br> <span>(2222 444 8888)</p>
+                </div>
+            </div>
+            <div class="card" style="width: 15rem;">
+                <img src="static/water tanker.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">पाण्याचा टँकर </h5>
+                    <p class="card-text">पाण्याच्या टँकर साठी पुढील टोल फ्री नंबरवर कॉल करा. <br> <span>(2222 444 8888)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="aboutUs">
+        <div class="row">
+            <h2>About Us</h2>
+            <div class="col-md-6 image">
+                <img src="https://opinionexpress.in/assets/images/article/1598338628.jpg" class="d-block w-100"
+                    style=" height: 300px;">
+
+
+            </div>
+            <div class="col-md-6">
+                <h3>वैभववाडी नगर पंचायत मध्ये आपले स्वागत आहे!</h3>
+                <br>
+                <p>
+                    वैभववाडी नगरपंचायत ही वैभववाडीच्या नयनरम्य शहरात स्थित एक दोलायमान आणि प्रगतीशील स्थानिक प्रशासकीय
+                    संस्था आहे. सिंधुदुर्ग जिल्ह्यात वसलेली, आमची नगरपंचायत या समृद्ध समाजासाठी प्रशासकीय केंद्र म्हणून
+                    काम करते.
+                </p>
+
+                <span>आपले ध्येय:</span>
+                <p>
+                    वैभववाडी नगरपंचायतमध्ये, सर्व रहिवाशांचे जीवनमान वाढवणारे शाश्वत आणि सर्वसमावेशक वातावरण निर्माण
+                    करणे हे आमचे ध्येय आहे. आम्ही सामाजिक एकोपा, आर्थिक वाढ आणि पर्यावरण संरक्षणाला प्रोत्साहन देणारा एक
+                    प्रगतीशील आणि चांगल्या प्रकारे जोडलेला समुदाय विकसित करण्याचा प्रयत्न करतो.
+                </p>
+
+                <p>
+                    आमचे ध्येय कार्यक्षम आणि पारदर्शक प्रशासन प्रदान करणे, आमच्या रहिवाशांच्या विकसित गरजा पूर्ण
+                    करण्यासाठी आवश्यक सेवा आणि सुविधा प्रदान करणे हे आहे. निर्णय घेण्याच्या प्रक्रियेत सक्रियपणे सहभागी
+                    होण्यासाठी नागरिकांना सक्षम बनवताना आमच्या शहरामध्ये आपलेपणा आणि अभिमानाची भावना वाढवण्याचे आमचे
+                    ध्येय आहे.
+                </p>
+                <span>मुख्य उद्दिष्टे:</span>
+                <ul>
+                    <li>
+                        पायाभूत सुविधांचा विकास: आम्ही वैभववाडीमध्ये रस्ते, ड्रेनेज सिस्टीम, पाणीपुरवठा आणि कचरा
+                        व्यवस्थापन सुविधांसह मजबूत पायाभूत सुविधा विकसित आणि राखण्यासाठी वचनबद्ध आहोत. आमचे ध्येय एकंदर
+                        राहणीमानाचा दर्जा वाढवणे आणि शहराची शाश्वतता सुनिश्चित करणे हे आहे.
+                    </li>
+                    <li>
+                        नागरिक प्रतिबद्धता: नागरिकांच्या सहभागाच्या सामर्थ्यावर आमचा ठाम विश्वास आहे. आम्ही सार्वजनिक
+                        सल्लामसलत, टाऊन हॉल मीटिंग आणि खुल्या मंचांद्वारे स्थानिक प्रशासनामध्ये रहिवाशांच्या सहभागास
+                        सक्रियपणे प्रोत्साहित करतो. तुमच्या कल्पना, सूचना आणि अभिप्राय आमच्या शहराचे भविष्य घडवण्यासाठी
+                        आवश्यक आहेत.
+                    </li>
+                    <li>
+                        समाजकल्याण: आम्ही समाजातील असुरक्षित घटकांसह आमच्या सर्व रहिवाशांच्या कल्याणाला प्राधान्य देतो.
+                        आमचे उपक्रम आरोग्य सेवा, शिक्षण आणि कल्याणकारी योजनांपर्यंत पोहोचण्यावर लक्ष केंद्रित करतात,
+                        प्रत्येकजण सन्माननीय आणि परिपूर्ण जीवन जगू शकेल याची खात्री करून देतो.
+                    </li>
+                    <li>
+                        पर्यावरण संवर्धन: आम्ही आमच्या नैसर्गिक संसाधनांचे जतन आणि पर्यावरणाचे संरक्षण करण्याचे महत्त्व
+                        ओळखतो. जनजागृती मोहिमा, वृक्षारोपण मोहिमेद्वारे आणि शाश्वत विकास पद्धतींद्वारे, भविष्यातील
+                        पिढ्यांना आनंद घेता येईल असे पर्यावरणपूरक आणि हरित शहर निर्माण करण्याचे आमचे ध्येय आहे.
+                    </li>
+                    <li>
+                        आर्थिक वाढ: गुंतवणुकीला आकर्षित करणारे, उद्योजकतेला चालना देणारे आणि स्थानिक उद्योगांना
+                        प्रोत्साहन देणारे व्यवसायिक वातावरण तयार करण्यासाठी आम्ही प्रयत्नशील आहोत. आर्थिक वाढीला पाठिंबा
+                        देऊन, आम्ही रोजगाराच्या संधी निर्माण करणे आणि आमच्या रहिवाशांची संपूर्ण समृद्धी सुधारण्याचे आमचे
+                        ध्येय आहे.
+                    </li>
+                    <li>
+                        पारदर्शक कारभार: आम्ही आमच्या कामकाजात पारदर्शकता आणि जबाबदारीची कदर करतो. आम्ही खात्री करतो की
+                        आमची निर्णय प्रक्रिया निष्पक्ष, प्रवेशयोग्य आणि सार्वजनिक छाननीसाठी खुली आहे. प्रभावी प्रशासन
+                        आणि आर्थिक व्यवस्थापनाद्वारे, आम्ही आमच्या रहिवाशांचा विश्वास आणि विश्वास राखतो.
+                    </li>
+                </ul>
+                <span>आमच्यात सामील व्हा:</span>
+                <p>
+                    वैभववाडीच्या विकासात सक्रिय सहभागी होण्यासाठी आम्ही तुम्हाला आमंत्रित करतो. एकत्रितपणे, आम्ही एक
+                    दोलायमान आणि टिकाऊ शहर तयार करू शकतो ज्याचा आम्हा सर्वांना अभिमान वाटेल. आमचे उपक्रम, प्रकल्प आणि
+                    सेवांबद्दल अधिक जाणून घेण्यासाठी आमची वेबसाइट एक्सप्लोर करा. तुमच्या कल्पना, चिंता किंवा शंकांसह
+                    आमच्यापर्यंत मोकळ्या मनाने पोहोचा. वैभववाडीचे चांगले भविष्य घडवण्यासाठी आम्ही तुमच्यासोबत काम
+                    करण्यास उत्सुक आहोत.
+                </p>
+                <h6>
+                    वैभववाडी नगरपंचायत - समाजाचे सक्षमीकरण, जीवन समृद्ध करणे.
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="container cantact" id="contact">
+        <div class="row" >
+            <h2>Contact Us</h2>
+            <form id="contactForm" action="{% url 'contact' %}" method="post">
+                {% csrf_token %}
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div id="successMessage" class="hidden">
+                <p>Thank you for your message!</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <h3>Contact Us</h3>
+                <p>Address: 123 Street, Vaibhavwadi, State, Country</p>
+                <p>Email: info@vaibhavwadi.com</p>
+                <p>Phone: +1234567890</p>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#aboutUs">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Vaibhavwadi Nagarpanchayat. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+<!-- water connection modal -->
+<div class="modal fade" id="WaterConnection" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Water connection registration</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{% url 'waterApply' %}" method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                        <input type="text" name="fullName" class="form-control" id="exampleFormControlInput1"
+                            placeholder="enter full name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Ward No</label>
+                        <input type="text" name="wardNo" class="form-control" id="exampleFormControlInput1" placeholder="ward no">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Place</label>
+                        <input type="text" name="place" class="form-control" id="exampleFormControlInput1" placeholder="enter place">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">House No</label>
+                        <input type="text" name="houseNo" class="form-control" id="exampleFormControlInput1" placeholder="enter house no">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <input type="submit"  value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Register complaintes modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Register complaintes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{% url 'complaint' %}" method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" name="fullName" class="form-control" id="exampleFormControlInput1" placeholder="enter name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Ward No</label>
+                        <input type="text" name="wardNo" class="form-control" id="exampleFormControlInput1" placeholder="ward no">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Place</label>
+                        <input type="text" name="place" class="form-control" id="exampleFormControlInput1" placeholder="enter place">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Complaintes </label>
+                        <input type="text" name="complaintes" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Complaintes">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">About complain</label>
+                        <textarea class="form-control" name="aboutComplaintes" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <input type="submit"  value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Login modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>Login Form</h2>
+                <form id="loginForm" action="{% url 'login' %}" onsubmit="validateForm(event)">
+                    {% csrf_token %}
+                  <div class="form-group">
+                    <label for="houseNo">House Number:</label>
+                    <input type="text" id="houseNo" name="houseNo" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="householderName">Householder's Name:</label>
+                    <input type="text" id="householderName" name="householderName" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Login">
+                  </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- complaintes status modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- side bar -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <!-- Menu items -->
+        <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+    var exampleModal1 = document.getElementById('exampleModal1')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        var modalTitle = exampleModal.querySelector('.modal-title')
+        var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'New message to ' + recipient
+        modalBodyInput.value = recipient
+    })
+
+    var WaterConnection = document.getElementById('WaterConnection')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        var modalTitle = exampleModal.querySelector('.modal-title')
+        var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'New message to ' + recipient
+        modalBodyInput.value = recipient
+    })
+
+    var loginModal = document.getElementById('loginModal')
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        var modalTitle = exampleModal.querySelector('.modal-title')
+        var modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'New message to ' + recipient
+        modalBodyInput.value = recipient
+    })
+
+    document.querySelector('.offcanvas-trigger').addEventListener('click', function () {
+        document.getElementById('offcanvasMenu').classList.toggle('offcanvas');
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Perform form validation
+        var name = document.getElementById("name").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var message = document.getElementById("message").value.trim();
+
+        if (name === "" || email === "" || message === "") {
+            alert("Please fill in all fields");
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            alert("Please enter a valid email address");
+            return;
+        }
+
+        // Form is valid, display success message
+        document.getElementById("contactForm").reset();
+        document.getElementById("successMessage").classList.remove("hidden");
+    });
+
+    // Email validation function
+    function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    function validateForm(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Retrieve form values
+  var houseNo = document.getElementById("houseNo").value;
+  var householderName = document.getElementById("householderName").value;
+
+  // Perform validation
+  if (houseNo.trim() === "") {
+    alert("Please enter your house number.");
+    return;
+  }
+
+  if (householderName.trim() === "") {
+    alert("Please enter the householder's name.");
+    return;
+  }
+
+  // Validation successful, proceed with login
+  alert("Login successful!");
+  document.getElementById("loginForm").reset(); // Reset form
+}
+
+</script>
+
+</html>
